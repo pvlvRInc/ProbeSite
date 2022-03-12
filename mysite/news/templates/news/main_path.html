@@ -34,17 +34,32 @@
 <div class="container mt-5">
     <h1> Список новостей </h1>
     <div class="row">
-        <div class="column">
+        <div class="col-md-12">
             {% for news_item in news %}
-            <div class="card mb-5">
+            <div class="card mb-5" style="width: 54rem;">
                 <div class="card-header">
                     Категория: {{ news_item.category }}
                 </div>
+
                 <div class="card-body">
-                    <h5 class="card-title">{{ news_item.title }}</h5>
-                    <p class="card-text">{{ news_item.text }}</p>
-                    <a href="#" class="btn btn-primary">Read more...</a>
+                    <div class="d-flex>">
+                        <div class="flex-shrink-0">
+                            {% if news_item.photo %}
+                            <img src="{{ news_item.photo.url }}" alt="Can't open image" width="360">
+                            {% else %}
+                            <img src="https://picsum.photos/id/870/360/300?grayscale&blur=2" alt="Can't open image">
+                            {% endif %}
+                        </div>
+
+                        <div class="flex-grow-0 ms-1">
+
+                            <h5 class="card-title">{{ news_item.title }}</h5>
+                            <p class="card-text">{{ news_item.text }}</p>
+                            <a href="#" class="btn btn-primary">Read more...</a>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="card-footer text-muted">
                     {{ news_item.created_at }}
                 </div>
