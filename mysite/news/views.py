@@ -6,4 +6,5 @@ from django.shortcuts import render
 #todo make a template
 
 def main_path(request):
-    return HttpResponse('Hello, world!')
+    print(request)
+    return render(request, 'news/main_path.html',{})
