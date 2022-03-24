@@ -1,0 +1,8 @@
+<ul class="list-group mt-3">
+    {% for category_item in categories %}
+        <a class="list-group-item d-flex justify-content-between align-items-center" href="{%url 'category_news' category_id=forloop.counter %}">
+            {{category_item.title}}
+            <span class="badge bg-dark rounded-pill">{{category_item.newscount}}</span>
+        </a>
+    {% endfor %}
+</ul>
